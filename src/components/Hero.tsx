@@ -87,20 +87,21 @@ function Hero() {
               }`}
             >
               <a
-                href="#"
+                href="https://github.com/zaman980"
                 className="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center hover:bg-green-600 hover:text-white transition-all duration-300 group hover:scale-110 hover:rotate-6"
               >
                 <FiGithub />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/in/zaman-nadeem-4b22081a0/"
                 className="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center hover:bg-green-600 hover:text-white transition-all duration-300 group hover:scale-110 hover:rotate-6"
               >
                 <FiLinkedin />
               </a>
               <a
-                href="#"
+               href="mailto:zamannadeem990@gmail.com"
                 className="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center hover:bg-green-600 hover:text-white transition-all duration-300 group hover:scale-110 hover:rotate-6"
+                aria-label="Email"
               >
                 <MdOutlineEmail />
               </a>

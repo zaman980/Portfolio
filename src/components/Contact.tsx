@@ -6,12 +6,13 @@ const Contact = () => {
   const socialIcons = [
     {
       icon: <FiGithub className="w-5 h-5" />,
-      link: "https://github.com/yourusername",
+      link: "https://github.com/zaman980",
       name: "Github",
+       
     },
     {
       icon: <FiLinkedin className="w-5 h-5" />,
-      link: "https://linkedin.com/in/yourusername",
+      link: "https://www.linkedin.com/in/zaman-nadeem-4b22081a0/",
       name: "LinkedIn",
     },
     // {

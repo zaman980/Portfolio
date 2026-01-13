@@ -47,21 +47,7 @@ function Experience() {
       ],
       skills: ["React", "Typescript", "Redux Toolkit", "Tanstack Query", "TailwindCSS"],
     },
-    {
-      company: "Techwrath",
-      position: "Junior Unity Developer",
-      period: "06/2023-06/2024",
-      location: "Lahore",
-      description:
-        "Lead development of enterprise web applications using React, Node.js, and cloud technologies. Mentored junior developers and implemented best practices for code quality and performance.",
-      achievements: [
-        "Developed the 2D platformer (Night Avenger) and 3D games (Reflex Rush) and (Square Fall)",
-        "Integrated Unity Ads for monetization and conducted quality testing",
-        "Assited in game reskinning and ad integration with Google Admob",
-        "Utilized RCC Controller in car racing games",
-      ],
-      skills: ["Unity", "C#", "Google Admob", "Reskinning"],
-    },
+   
    
   ];
   return (

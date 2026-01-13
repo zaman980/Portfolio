@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import Project1 from "../assets/Project1.png";
 import Project2 from "../assets/Project2.png";
-import Project3 from "../assets/Project3.png";
-import { FiGithub } from "react-icons/fi";
-import { FiExternalLink } from "react-icons/fi"; // Feather Icons
+ // Keep if you plan to add a third project later
+import { FiGithub, FiExternalLink } from "react-icons/fi";
 
 function Projects() {
   const [isVisible, setIsVisible] = useState(false);
@@ -13,11 +12,10 @@ function Projects() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+          observer.disconnect();
         }
       },
-      {
-        threshold: 0.3,
-      }
+      { threshold: 0.3 }
     );
 
     const element = document.getElementById("projects");
@@ -27,37 +25,44 @@ function Projects() {
 
     return () => observer.disconnect();
   }, []);
+
   const projects = [
     {
       id: 1,
-      title: "Dashboard",
+      title: "GPT Translator",
       description:
-        "A modern dashboard application built with React and Tailwind CSS, allowing dynamic data visualization and user management.",
+        "An AI-powered real-time language translator built with OpenAI's GPT models. Features a clean, responsive UI with support for multiple languages and instant translations.",
       image: Project1,
-      technologies: ["React", "Tailwind CSS", "Chart.js"],
-      category: "Full Stack",
+      technologies: ["React", "Tailwind CSS", "OpenAI API"],
+      github: "#", // Replace with your actual GitHub link
+      demo: "#",   // Replace with your live demo link
+      category: "Frontend / AI",
       featured: true,
     },
     {
       id: 2,
-      title: "EMS",
+      title: "Todo App",
       description:
-        "An Employee Management System that enables HR to track employee performance, attendance, and internal communication.",
+        "A feature-rich task management application with CRUD operations, local persistence, and a modern interface. Built for performance and scalability using Next.js.",
       image: Project2,
-      technologies: ["Node.js", "Express", "MongoDB"],
+      technologies: ["Next.js", "React", "Tailwind CSS"],
+      github: "#", // Replace with your actual GitHub link
+      demo: "#",   // Replace with your live demo link
       category: "Full Stack",
       featured: true,
     },
-    {
-      id: 3,
-      title: "Ecommerce Shopping Cart using React Redux",
-      description:
-        "A fully functional shopping cart with user authentication, product management, and Redux for state management.",
-      image: Project3,
-      technologies: ["React", "Redux", "Firebase"],
-      category: "Full Stack",
-      featured: true,
-    },
+    // Add a third project here if you have Project3.png ready
+    // {
+    //   id: 3,
+    //   title: "Another Project",
+    //   description: "...",
+    //   image: Project3,
+    //   technologies: ["..."],
+    //   github: "#",
+    //   demo: "#",
+    //   category: "Full Stack",
+    //   featured: false,
+    // },
   ];
 
   return (
@@ -69,114 +74,106 @@ function Projects() {
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-green-600/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-r from-transparent via-green-600/5 to-transparent"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-r from-transparent via-green-600/5 to-transparent"></div>
       </div>
 
-      {/* Main content */}
       <div className="container mx-auto px-6 relative z-10">
+        {/* Heading */}
         <div
           className={`text-center mb-16 transition-all duration-1000 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <div>
-            <p className="text-green-400 font-semibold text-lg mb-4">
-              Portfolio
-            </p>
+          <p className="text-green-400 font-semibold text-lg mb-4">Portfolio</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Featured Projects
+          </h2>
+          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+            Here are some of my recent projects that showcase my skills and expertise
+          </p>
+        </div>
 
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Featured Projects
-            </h2>
-
-            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-              Here are some of my recent projects that showcase my skills and
-              expertise
-            </p>
-
-            {/* Project Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-16">
-              {projects.map((project, index) => {
-                return (
-                  <div
-                    className={`group bg-slate-900 rounded-xl shadow-md hover:shadow-lg transition-all duration-1000 delay-600 overflow-hidden border border-slate-700 hover:border-green-500 hover:scale-105  ${
-                      isVisible
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-10"
-                    }`}
-                    style={{ transitionDelay: `${(index + 3) * 150}ms` }}
-                    key={project.id}
-                  >
-                    <div className="relative overflow-hidden">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-70 object-cover group-hover:scale-105 transition-all duration-300"
-                      />
-                      <div className="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                        {/* GitHub Button */}
-                        <button className="w-8 h-8 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-all duration-300">
-                          <FiGithub className="w-4 h-4 text-gray-700" />
-                        </button>
-
-                        {/* External Link Button */}
-                        <button className="w-8 h-8 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-all duration-300">
-                          <FiExternalLink className="w-4 h-4 text-gray-700" />
-                        </button>
-                      </div>
-
-                      <div className="p-6">
-                        {/* Category Badge */}
-                        <div className="flex items-center justify-between mb-3">
-                          <span className="bg-slate-800 text-gray-400 px-2 py-1 rounded-full text-xs font-medium">
-                            {project.category}
-                          </span>
-                        </div>
-
-                        {/* Project Title */}
-                        <h4 className="text-lg font-bold text-white mb-2 group-hover:text-green-400 transition-all duration-300">
-                          {project.title}
-                        </h4>
-                      </div>
-
-                      <p className="text-gray-300 text-sm mb-4 leading-relaxed">
-                        {project.description.substring(0, 100)}...
-                      </p>
-                    </div>
-
-                    {/* Technologies */}
-                    <div className="flex flex-wrap gap-1 mb-4">
-                      {project.technologies.map((tech, techIndex) => (
-                        <span
-                          key={techIndex}
-                          className="bg-green-600 text-white px-2 py-1 rounded-full text-xs font-medium"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Button */}
+        {/* Project Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {projects.map((project, index) => (
             <div
-              className={`text-center transition-all duration-1000 delay-1000 mt-5  ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
+              key={project.id}
+              className={`group bg-slate-900 rounded-xl shadow-md hover:shadow-2xl transition-all duration-500 overflow-hidden border border-slate-700 hover:border-green-500 hover:scale-105 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
               }`}
+              style={{ transitionDelay: `${index * 200}ms` }}
             >
-              <button
-                className="bg-green-600 text-white px-8 py-4 rounded-lg hover:bg-green-700 transition-all duration-300 font-medium shadow-lg hover:shadow-xl hover:scale-105"
-                aria-label="View all projects"
-              >
-                View All Projects
-              </button>
-            </div>
-          </div>
+              {/* Image with overlay links */}
+              <div className="relative overflow-hidden">
+                <img
+                
+                 
+                  className="w-full h-64 object-cover group-hover:scale-110 transition-all duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute top-4 right-4 flex gap-3 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-all duration-300 shadow-lg"
+                    aria-label="GitHub Repository"
+                  >
+                    <FiGithub className="w-5 h-5 text-gray-800" />
+                  </a>
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-all duration-300 shadow-lg"
+                    aria-label="Live Demo"
+                  >
+                    <FiExternalLink className="w-5 h-5 text-gray-800" />
+                  </a>
+                </div>
+              </div>
 
-          {/* Add your projects here */}
+              {/* Card Content */}
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="bg-slate-800 text-gray-400 px-3 py-1 rounded-full text-xs font-medium">
+                    {project.category}
+                  </span>
+                </div>
+
+                <h4 className="text-xl font-bold text-white mb-3 group-hover:text-green-400 transition-colors duration-300">
+                  {project.title}
+                </h4>
+
+                <p className="text-gray-300 text-sm mb-6 leading-relaxed">
+                  {project.description}
+                </p>
+
+                {/* Technologies */}
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.map((tech, techIndex) => (
+                    <span
+                      key={techIndex}
+                      className="bg-green-600/20 text-green-400 px-3 py-1 rounded-full text-xs font-medium border border-green-600/30"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* View All Button */}
+        <div
+          className={`text-center mt-16 transition-all duration-1000 delay-700 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
+          <button className="bg-green-600 text-white px-8 py-4 rounded-lg hover:bg-green-700 transition-all duration-300 font-medium shadow-lg hover:shadow-xl hover:scale-105">
+            View All Projects
+          </button>
         </div>
       </div>
     </section>
