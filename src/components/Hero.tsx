@@ -2,6 +2,7 @@ import { ArrowRight, Play } from "lucide-react";
 import { useEffect, useState } from "react";
 import { FiGithub, FiLinkedin } from "react-icons/fi";
 import { MdOutlineEmail } from "react-icons/md";
+import profileImage from "../assets/51.jpg";
 
 function Hero() {
   const [isVisible, SetIsVisible] = useState(false);
@@ -118,7 +119,7 @@ function Hero() {
               <div className="w-full max-w-lg mx-auto">
                 <div className="relative group">
                   <img
-                    src="src/assets/51.jpg"
+                    src={profileImage}
                     alt="Portrait of Alexander Smith"
                     className="w-full rounded-2xl shadow-2xl transition-all duration-500 group-hover:scale-105"
                   />

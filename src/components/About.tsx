@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import profileImage from "../assets/51.jpg";
 
 function About() {
   const [isVisible, setIsVisible] = useState(false);
@@ -11,11 +12,11 @@ function About() {
         }
       },
       {
-        threshold: 0.3, // Trigger when 30% of the element is visible
+        threshold: 0.3, 
       }
     );
 
-    const element = document.getElementById("about"); // Replace with your actual ID
+    const element = document.getElementById("about"); 
     if (element) {
       observer.observe(element);
     }
@@ -49,7 +50,7 @@ function About() {
               <div className="relative group w-full max-w-md mx-auto">
                 <div className="relative border-4 border-green-500 rounded-2xl p-2 group-hover:border-green-400 transform group-hover:scale-105 transition-all duration-300">
                   <img
-                    src="src/assets/51.jpg"
+                    src={profileImage}
                     alt="About"
                     className="w-full rounded-xl transition-all duration-500 group-hover:scale-105"
                   />
