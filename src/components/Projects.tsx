@@ -1,7 +1,9 @@
+
 import  { useEffect, useState } from "react";
-import Project1 from "../assets/Project1.png";
-import Project2 from "../assets/Project2.png";
- // Keep if you plan to add a third project later
+import Project1 from "../assets/Project 1.png";
+import Project2 from "../assets/Project 2.png";
+
+
 import { FiGithub, FiExternalLink } from "react-icons/fi";
 
 function Projects() {
@@ -107,7 +109,8 @@ function Projects() {
               <div className="relative overflow-hidden">
                 <img
                 
-                 
+                 src={project.image}
+                    alt={project.title}
                   className="w-full h-64 object-cover group-hover:scale-110 transition-all duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

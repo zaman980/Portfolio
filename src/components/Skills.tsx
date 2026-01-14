@@ -5,9 +5,11 @@ function Skills() {
 const [animatedSkills, setAnimatedSkills] = useState<Record<string, number>>({});
   const Skills = [
     { name: "HTML5", level: 100 },
-    { name: "CSS3", level: 80 },
-    { name: "Javascript", level: 50 },
-    { name: "React", level: 50 },
+    { name: "CSS3", level: 100 },
+     { name: "Tailwindcss", level: 50 },
+    { name: "Javascript", level: 60 },
+    { name: "React", level: 60 },
+     { name: "Nextjs", level: 20 },
   ];
 
   useEffect(() => {
