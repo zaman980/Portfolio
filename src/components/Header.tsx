@@ -1,5 +1,6 @@
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import ZamanNadeem from '../assets/Zaman Nadeem.pdf'
 
 const Header = () => {
   const [isMenuOpen, setIsOpen] = useState(false);
@@ -63,7 +64,7 @@ const Header = () => {
 
           {/* Desktop Download Button */}
           <a
-           href="/Zaman Nadeem.pdf" // Same file in public folder
+           href={ZamanNadeem} // Same file in public folder
               download="Zaman Nadeem.pdf"
             className="hidden md:flex items-center gap-2 bg-green-600 text-white px-6 py-2.5 rounded-lg hover:bg-green-700 transition-all duration-300 font-medium shadow-lg hover:shadow-xl hover:scale-105"
           >

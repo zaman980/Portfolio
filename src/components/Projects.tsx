@@ -28,19 +28,15 @@ function Projects() {
     return () => observer.disconnect();
   }, []);
 
-  const projects = [
-    {
-      id: 1,
-      title: "GPT Translator",
-      description:
-        "An AI-powered real-time language translator built with OpenAI's GPT models. Features a clean, responsive UI with support for multiple languages and instant translations.",
-      image: Project1,
-      technologies: ["React", "Tailwind CSS", "OpenAI API"],
-      github: "#", // Replace with your actual GitHub link
-      demo: "#",   // Replace with your live demo link
-      category: "Frontend / AI",
-      featured: true,
-    },
+ const projects = [ { id: 1, 
+  title: "Kanban Board", 
+  description: "A drag-and-drop Kanban board built with React, TypeScript, and @dnd-kit. Features memoization, reusable helpers, and performance optimizations.", 
+  image: Project1, 
+  technologies: ["React", "TypeScript", "Tailwind CSS", "@dnd-kit"], 
+  github: "https://github.com/zaman980/Kanban-Board", 
+  demo: "https://kanban-board-react-git-main-zamans-projects-8f5502cc.vercel.app/", 
+  category: "Frontend / Productivity", 
+  featured: true, }, 
     {
       id: 2,
       title: "Todo App",
@@ -48,23 +44,12 @@ function Projects() {
         "A feature-rich task management application with CRUD operations, local persistence, and a modern interface. Built for performance and scalability using Next.js.",
       image: Project2,
       technologies: ["Next.js", "React", "Tailwind CSS"],
-      github: "#", // Replace with your actual GitHub link
-      demo: "#",   // Replace with your live demo link
+      github: "https://github.com/zaman980/Todo-App", // Replace with your actual GitHub link
+      demo: "https://todoapp-plum-sigma.vercel.app/",   // Replace with your live demo link
       category: "Full Stack",
       featured: true,
     },
-    // Add a third project here if you have Project3.png ready
-    // {
-    //   id: 3,
-    //   title: "Another Project",
-    //   description: "...",
-    //   image: Project3,
-    //   technologies: ["..."],
-    //   github: "#",
-    //   demo: "#",
-    //   category: "Full Stack",
-    //   featured: false,
-    // },
+    
   ];
 
   return (
